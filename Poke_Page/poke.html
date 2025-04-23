@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="A modern Pokedex application to display and catch Pokémon.">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="/Poke_Page/poke.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+<!-- Sticky Header with Search -->
+<header class="pg-header container">
+    <h1 class="pg-title">Pokedex</h1>
+    <div class="header-actions">
+        <input
+                type="search"
+                id="search-pokemon"
+                class="search-input"
+                placeholder="Search Pokémon..."
+                aria-label="Search Pokémon by name"
+        />
+        <div id="caught-counter" class="caught-counter" aria-live="polite">
+            Pokémon Caught: 0
+        </div>
+        <button id="view-gallery" class="btn btn-primary">My Gallery</button>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+    <section id="pokemon-grid" class="pokemon-grid" aria-label="List of Pokémon"></section>
+    <div class="controls">
+        <button id="load-more" class="btn btn-primary">Load More</button>
+    </div>
+</main>
+
+<!-- Scroll to Top Button -->
+<button id="scroll-to-top" class="btn btn-primary scroll-top hidden" aria-label="Back to top">↑</button>
+
+<!-- Shared Overlay -->
+<div id="overlay" class="overlay hidden"></div>
+
+<!-- Pokémon Details Modal -->
+<aside
+        id="pokemon-details"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="details-name"
+        tabindex="-1"
+>
+    <button id="close-details" class="btn btn-close" aria-label="Close Pokémon details">&times;</button>
+    <figure class="modal-image">
+        <img id="details-image" src="" alt="Pokémon artwork" />
+        <figcaption id="details-name" class="modal-title"></figcaption>
+    </figure>
+    <div id="details-types" class="modal-section"></div>
+    <div id="details-moves" class="modal-section"></div>
+    <button id="catch-button" class="btn btn-accent">Catch</button>
+</aside>
+
+<!-- Caught‑Pokémon Gallery Modal -->
+<aside
+        id="gallery-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-title"
+        tabindex="-1"
+>
+    <button id="close-gallery" class="btn btn-close" aria-label="Close Gallery">&times;</button>
+    <h2 id="gallery-title" class="modal-title">My Caught Pokémon</h2>
+    <div id="gallery-stacks" class="gallery-stacks"></div>
+</aside>
+
+<script src="/Poke_Page/poke.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!-- poke-collection.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Kunjan • Poke Collection</title>
+    <link rel="stylesheet" href="/Homepage/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+<!-- Sticky Header -->
+<header class="site-header container">
+    <a href="/" class="logo">Kunjan Dangal</a>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <input
+                type="search"
+                id="search-projects"
+                class="search-input"
+                placeholder="Search projects…"
+                aria-label="Search projects"
+        />
+    </nav>
+</header>
+
+<!-- Hero + Profile -->
+<section id="hero" class="hero container">
+    <div class="hero-content">
+        <!-- Profile Frame -->
+        <div class="profile-frame">
+            <img src="/Project_basic/assets/images/kunjan.jpg" alt="Kunjan Dangal"/>
+            <div class="name-overlay">Kunjan Dangal</div>
+        </div>
+        <!-- Hero Text -->
+        <div class="hero-text">
+            <h1>Hi, I’m Kunjan Dangal.</h1>
+            <p>A web developer passionate about Front-End & JavaScript.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about container">
+    <h2>About Me</h2>
+    <p>I’m a novice web developer studying at Algonquin College. I build interactive, animated front-end applications with modern JS and CSS techniques.</p>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="projects container">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <!-- Poke Collection Card -->
+        <article class="project-card">
+            <h3>Poke Collection</h3>
+            <p class="project-description">Find Your Pokémon</p>
+
+            <div class="project-preview">
+                <iframe
+                        src="/Project_basic/Poke_Page/poke.html"
+                        title="Poke Collection Preview"
+                        frameborder="0"
+                        loading="lazy"
+                ></iframe>
+            </div>
+
+            <div class="project-actions">
+                <a href="/Project_basic/Poke_Page/poke.html" target="_blank" class="btn btn-primary">
+                    Visit Site
+                </a>
+                <a href="https://github.com/cst8209-f24/pokedex-KunjanDangal121" target="_blank" class="btn btn-accent">
+                    GitHub Repo
+                </a>
+            </div>
+        </article>
+
+        <!-- Office Lite Card -->
+        <article class="project-card">
+            <h3>Office Lite</h3>
+            <p class="project-description">A lightweight office landing page</p>
+
+            <div class="project-preview">
+                <iframe
+                        src="/Project_basic/Signin Page/officelitehome.html"
+                        title="Office Lite Preview"
+                        frameborder="0"
+                        loading="lazy"
+                ></iframe>
+            </div>
+
+            <div class="project-actions">
+                <a href="/Project_basic/Signin Page/officelitehome.html" target="_blank" class="btn btn-primary">
+                    Visit Site
+                </a>
+                <a href="https://github.com/yourusername/office-lite" target="_blank" class="btn btn-accent">
+                    GitHub Repo
+                </a>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="contact container">
+    <h2>Contact</h2>
+    <form id="contact-form" class="contact-form">
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</section>
+
+<!-- Scroll to Top -->
+<button id="scroll-to-top" class="scroll-top btn btn-primary hidden" aria-label="Back to top">↑</button>
+
+<script src="/Homepage/js/script.js"></script>
+</body>
+</html>

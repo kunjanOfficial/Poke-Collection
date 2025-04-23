@@ -1,0 +1,347 @@
+/* Variables */
+:root {
+  --primary-blue: #5175ff;
+  --secondary-blue: #829cff;
+  --white: #ffffff;
+  --gray: #212529;
+  --dark-gray: #1c1f2c;
+}
+
+/* Global Styles */
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  margin: 0;
+  background-color: white;
+  color: var(--gray);
+}
+
+.split-background {
+  position: relative;
+  min-height: 100vh;
+}
+
+.split-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%; /* White background on top half for page*/
+  background-color: #ffffff;
+  z-index: 0;
+}
+
+.split-background::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%; /* Black background covers bottom 35% */
+  background-color: #000000;
+  z-index: 0;
+}
+
+/* Content Inside */
+.split-background > * {
+  position: relative;
+  z-index: 1; /* Ensure content appears above backgrounds */
+}
+
+.logo {
+  display: inline-block;
+}
+
+header {
+  text-align: left;
+  padding: 1rem 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header .logo img {
+  height: 18%;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(
+    to bottom,
+    var(--light-gray) 0%,
+    var(--white) 100%
+  );
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--gray);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0 0;
+}
+
+.btn-custom {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(81, 117, 255, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: var(--secondary-blue);
+  box-shadow: 0 6px 12px rgba(81, 117, 255, 0.4);
+}
+
+/* Plans Section */
+.plans {
+  padding: 3rem 0;
+}
+
+.plan-card {
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.plan-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.plan-basic {
+  background-color: var(--white);
+}
+
+.plan-pro {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--secondary-blue)
+  );
+  color: var(--white);
+}
+
+.plan-ultimate {
+  background-color: var(--white);
+}
+
+.plan-card .price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.plan-card ul li {
+  margin-bottom: 0.5rem;
+}
+
+.plan-card a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.plan-basic a {
+  color: var(--primary-blue);
+
+  background-color: #c1cfff;
+}
+
+.plan-basic a:hover {
+  background-color: var(--secondary-blue);
+  color: var(--white);
+}
+
+.plan-pro a,
+.plan-ultimate a {
+  color: var(--primary-blue);
+  background-color: #c1cfff;
+}
+
+.plan-pro a:hover,
+.plan-ultimate a:hover {
+  background-color: var(--secondary-blue);
+}
+
+.card {
+  border-width: 0;
+}
+
+/* Footer Call-to-Action */
+footer {
+  background-color: #000000;
+  padding: 2rem 0;
+}
+
+footer .btn-custom {
+  box-shadow: none;
+}
+
+/* Media Queries for the mobile devices */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn-custom {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .plans {
+    padding: 2rem 1rem;
+  }
+
+  .plan-card {
+    padding: 1rem;
+  }
+
+  .plan-card .price {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet-Specific Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Plans Section */
+  .plans .row {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 2rem; /* Space between cards */
+  }
+
+  /* Each Plan Card */
+  .plans .row .col {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    width: 100%; /* Ensure cards span the full width of the container */
+  }
+
+  .plans .row .col .plan-card {
+    width: 100%; /* Full width of the container */
+    max-width: 100%; /* Optional: Limit the maximum width */
+    padding: 2rem; /* Add padding inside the card for better spacing */
+    border-radius: 20px; /* Rounded corners for each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a clean look */
+  }
+
+  /* Specific Plan Styles */
+  .plans .row .col .plan-basic {
+    background-color: #ffffff; /* White background for Basic plan */
+    color: #212529; /* Dark gray text */
+  }
+
+  .plans .row .col .plan-pro {
+    background-color: #5175ff; /* Primary blue for Pro plan */
+    color: #ffffff; /* White text */
+  }
+
+  .plans .row .col .plan-ultimate {
+    background-color: #1c1f2c; /* Dark gray background for Ultimate plan */
+    color: #ffffff; /* White text */
+  }
+
+  /* Price Styling */
+  .plans .row .col .plan-card .price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+
+  /* Text Alignment */
+  .plans .row .col .plan-card ul {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+  }
+
+  .plans .row .col .plan-card ul li {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Button Styling */
+  .plans .row .col .plan-card a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+
+  .plans .row .col .plan-basic a {
+    background-color: #e4eaff; /* Lighter blue */
+    color: #5175ff; /* Primary blue */
+  }
+
+  .plans .row .col .plan-basic a:hover {
+    background-color: #c1cfff; /* Light blue on hover */
+    color: #ffffff;
+  }
+
+  .plans .row .col .plan-pro a {
+    background-color: #ffffff; /* White for Pro button */
+    color: #5175ff; /* Primary blue text */
+  }
+
+  .plans .row .col .plan-pro a:hover {
+    background-color: #c1cfff; /* Light blue on hover */
+  }
+
+  .plans .row .col .plan-ultimate a {
+    background-color: #ffffff; /* White for Ultimate button */
+    color: #1c1f2c; /* Dark gray text */
+  }
+
+  .plans .row .col .plan-ultimate a:hover {
+    background-color: #829cff; /* Secondary blue on hover */
+    color: #ffffff;
+  }
+}

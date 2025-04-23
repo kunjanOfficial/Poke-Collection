@@ -1,0 +1,263 @@
+/* style.css */
+
+/* 1. Reset & Variables */
+*,
+*::before,
+*::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+:root {
+    --clr-bg:         #f9fafb;
+    --clr-foreground: #1f2937;
+    --clr-primary:    #4f46e5;
+    --clr-secondary:  #f97316;
+    --clr-muted:      #6b7280;
+    --clr-card-bg:    #ffffff;
+    --clr-shadow:     rgba(0,0,0,0.1);
+
+    --space-xs: 0.5rem;
+    --space:    1rem;
+    --space-lg: 2rem;
+
+    --ff-base:  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --fs-base:  1rem;
+    --lh-base:  1.6;
+    --fw-bold:  600;
+    --radius:   0.5rem;
+}
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    color: var(--clr-foreground);
+    background: var(--clr-bg);
+}
+
+/* 2. Container & Helpers */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hidden { display: none !important; }
+
+/* 3. Sticky Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    background: var(--clr-primary);
+    color: var(--clr-card-bg);
+    padding: var(--space);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--clr-shadow);
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-card-bg);
+    text-decoration: none;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+}
+.nav-links a {
+    color: var(--clr-card-bg);
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+}
+.search-input {
+    padding: var(--space-xs) var(--space);
+    border-radius: var(--radius);
+    border: none;
+    width: 180px;
+}
+
+/* 4. Hero & Profile */
+.hero {
+    padding: var(--space-lg) 0;
+}
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-lg);
+}
+.profile-frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 5px solid var(--clr-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.name-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+    padding: var(--space-xs) 0;
+    font-weight: var(--fw-bold);
+    font-size: 1rem;
+}
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+}
+.hero-text p {
+    font-size: 1.125rem;
+    color: var(--clr-muted);
+}
+
+/* 5. About */
+.about {
+    padding: var(--space-lg) 0;
+    text-align: center;
+}
+
+/* 6. Projects Grid */
+.projects .project-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: var(--space-lg) 0;
+}
+.project-card {
+    background: var(--clr-card-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--clr-shadow);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px var(--clr-shadow);
+}
+.project-card h3 {
+    font-size: 1.25rem;
+    color: var(--clr-primary);
+}
+.project-description {
+    color: var(--clr-muted);
+}
+
+/* 7. Preview iFrame */
+.project-preview {
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+}
+.project-preview iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+/* 8. Project Actions */
+.project-actions {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+}
+.btn {
+    padding: var(--space-xs) var(--space);
+    border: none;
+    border-radius: var(--radius);
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.btn-primary {
+    background: var(--clr-primary);
+    color: var(--clr-card-bg);
+}
+.btn-primary:hover {
+    background: var(--clr-secondary);
+}
+.btn-accent {
+    background: var(--clr-secondary);
+    color: var(--clr-card-bg);
+}
+.btn-accent:hover {
+    background: var(--clr-primary);
+}
+
+/* 9. Contact Form */
+.contact {
+    padding: var(--space-lg) 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+.contact-form input,
+.contact-form textarea {
+    padding: var(--space-xs);
+    border: 1px solid var(--clr-muted);
+    border-radius: var(--radius);
+    font: inherit;
+}
+.contact-form button {
+    align-self: flex-start;
+}
+
+/* 10. Scroll-to-Top */
+.scroll-top {
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    font-size: 1.25rem;
+    display: none;
+    z-index: 1001;
+}
+.scroll-top.visible {
+    display: block;
+}
+
+/* 11. Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-frame {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 600px) {
+    .search-input {
+        display: none;
+    }
+    .projects .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
